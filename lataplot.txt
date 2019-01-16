@@ -1,0 +1,48 @@
+Title 'Plot 1: 基本函数图像' (320,100,15);
+color is black;
+origin is (70, 150);				-- 设置原点的偏移量
+scale is (1,0.618);				-- x轴扩展2倍
+//第一张图
+for T from 0 to 500 step 1 draw (t, 0);		-- 横坐标
+xticks step 80 num 6 tsize 10 fsize 10;
+for T from 0 to 500 step 1 draw (0, t);		-- 纵坐标
+yticks step 100 num 4 tsize 10 fsize 10;
+
+color is yellow;
+for T from 0 to 500 step 1 draw (t, t);		-- f(t)=t
+LEGEND 'f(t) = t' (300,300,10);
+
+color is red;
+for T from 0 to 500 step 1 draw (t, 60*ln(t+1));
+LEGEND 'f(t) = 60Ln(t+1)' (300,240,10); 
+
+color is green;
+for T from 0 to 500 step 1 draw (t, 10*sqrt(t)); 
+LEGEND 'f(t) = 10sqrt(t)' (500,320,10); 	
+
+color is blue;
+for T from 0 to 500 step 1 draw (t, 100+100*sin(0.1*t)); 
+LEGEND 'f(t) = 100sin(0.1t)' (380,330,10); 
+//第二张图
+Title 'Plot 2: 太极' (802,40,15);
+color is red;
+origin is (800, 450);
+scale is (15,15);
+
+FOR T FROM 0 TO 3 STEP 0.01 DRAW (t, sqrt(9-t**2)+3);
+FOR T FROM -6 TO 6 STEP 0.01 DRAW (t, sqrt(36-t**2));
+FOR T FROM 0 TO 3 STEP 0.01 DRAW (t, 3-sqrt(9-t**2));
+FOR T FROM -1 TO 1 STEP 0.01 DRAW (t, sqrt(1-t**2)-3);
+FOR T FROM -1 TO 1 STEP 0.01 DRAW (t, -sqrt(1-t**2)-3);
+FOR T FROM -6 TO 6 STEP 0.01 DRAW (t, -sqrt(36-t**2));
+FOR T FROM -3 TO 0 STEP 0.01 DRAW (t, -3-sqrt(9-t**2));
+FOR T FROM -3 TO 0 STEP 0.01 DRAW (t, -3+sqrt(9-t**2));
+FOR T FROM -1 TO 1 STEP 0.01 DRAW (t, -sqrt(1-t**2)+3);
+FOR T FROM -1 TO 1 STEP 0.01 DRAW (t, sqrt(1-t**2)+3);
+//第三张图
+Title 'Plot 3: 玫瑰' (802,350,15);
+color is green;
+origin is (800, 150);
+scale is (30,30);
+rot is 0;
+for t from 0 to 100*pi step pi/200 draw(3*sin(15*T/8)*cos(T),3*sin(15*T/8)*sin(T)); 
